@@ -17,3 +17,10 @@
     upgrade: dist
     cache_valid_time: 3600
     force_apt_get: true
+    
+  - name: "creating users"
+    user: 
+      name: v.reizvih
+      state: present
+      name: a.troickiy
+      state: present

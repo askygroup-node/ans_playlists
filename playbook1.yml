@@ -33,4 +33,28 @@
       - reizvih
       - troickiy
      
-   -
+  - name: "add reizvih to groups"
+    ansible.builtin.user:
+      name: reizvih
+      shell: /bin/bash
+      groups: reizvih,sudo
+      append: yes
+      
+  - name: "add troickiy to groups"
+    ansible.builtin.user:
+      name: troickiy
+      shell: /bin/bash
+      groups: troickiy,sudo
+      append: yes
+      
+  - name: "put reizvih to server"
+    authorized_key:
+       user: reizvih
+       state: present
+       key: "{{ lookup('file', '/Users/v.reizvih/.ssh/reizvih/rsa.pub') }}"
+       
+  - name: "put troickiy server"
+    authorized_key:
+       user: troickiy
+       state: present
+       key: "{{ lookup('file', '/Users/v.reizvih/.ssh/troickiy/rsa.pub') }}"

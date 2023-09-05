@@ -20,7 +20,15 @@
     
   - name: "creating users"
     user: 
-      name: v.reizvih
+      name: reizvih
       state: present
-      name: a.troickiy
+      name: troickiy
       state: present
+  
+  - name: "create groups"
+    group:
+      name: "{{ item }}"
+      state: present
+    loop:
+      - reizvih
+      - troickiy

@@ -47,13 +47,13 @@
       groups: troickiy,sudo
       append: yes
       
-  - name: "put reizvih to server"
+  - name: "put reizvih key to server"
     authorized_key:
        user: reizvih
        state: present
        key: "{{ lookup('file', '/Users/v.reizvih/.ssh/reizvih/rsa.pub') }}"
        
-  - name: "put troickiy server"
+  - name: "put troickiy key to server"
     authorized_key:
        user: troickiy
        state: present
